@@ -203,9 +203,9 @@ function extractEmails(str) {
  *
  */
 function getRectangleString(width, height) {
-  let top = '┌' + '─'.repeat(width - 2) + '┐\n';
-  let middle = ('│' + ' '.repeat(width - 2) + '│\n').repeat(height - 2);
-  let bottom = '└' + '─'.repeat(width - 2) + '┘\n';
+  const top = `┌${'─'.repeat(width - 2)}┐\n`;
+  const middle = (`│${' '.repeat(width - 2)}│\n`).repeat(height - 2);
+  const bottom = `└${'─'.repeat(width - 2)}┘\n`;
   return top + middle + bottom;
 }
 
@@ -227,9 +227,7 @@ function getRectangleString(width, height) {
  *
  */
 function encodeToRot13(str) {
-  return str.replace(/[a-z]/gi, function(s) {
-      return String.fromCharCode(s.charCodeAt(0) + (s.toLowerCase() < 'n' ? 13 : -13));
-  });
+  return str.replace(/[a-z]/gi, (s) => String.fromCharCode(s.charCodeAt(0) + (s.toLowerCase() < 'n' ? 13 : -13)));
 }
 
 /**
@@ -277,8 +275,8 @@ function isString(value) {
 function getCardId(value) {
   const suits = ['♣', '♦', '♥', '♠'];
   const ranks = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
-  let suit = value[value.length - 1];
-  let rank = value.slice(0, -1);
+  const suit = value[value.length - 1];
+  const rank = value.slice(0, -1);
   return suits.indexOf(suit) * 13 + ranks.indexOf(rank);
 }
 
